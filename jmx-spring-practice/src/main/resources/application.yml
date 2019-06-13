@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: jmx-spring-practice
+
+server:
+  port: 8103
+  connection-timeout: 5s
+  tomcat:
+    min-spare-threads: 5
+    max-threads: 10
+    accept-count: 10
+    max-connections: 100
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8093/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    export:
+      jmx:
+        domain: com.practice.spring.jmx
